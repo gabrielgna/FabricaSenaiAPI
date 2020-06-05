@@ -33,55 +33,55 @@
 	</bean>
 
 
-	<!-- 
+
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
-	    <property name="driverClassName" value="${database.driver}"/> 
-		<property name="url" value="${database.url}"/> 
-		<property name="username" value="${database.username}"/> 
-		<property name="password" value="${database.password}"/> 
-	</bean>
-	 -->
-
-	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-		<property name="jndiName">
-			<value>${jndi-datasource}</value>
-		</property>
+	    <property name="driverClassName" value="org.postgresql.Driver"/>
+		<property name="url" value="jdbc:postgresql://ec2-34-197-141-7.compute-1.amazonaws.com:5432/d9b9daibhs8m4p"/>
+		<property name="username" value="whjsnoxqvwbdec"/>
+		<property name="password" value="16bdde2c6c7da3beca9cea3b2fe8ad8b596c182d152cee8bc577cbb8beec8608"/>
 	</bean>
 
-	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-		<property name="entityManagerFactory" ref="entityManagerFactory"></property>
-	</bean>
+	<!--
+        <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+            <property name="jndiName">
+                <value>${jndi-datasource}</value>
+            </property>
+        </bean>
+ -->
+        <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+            <property name="entityManagerFactory" ref="entityManagerFactory"></property>
+        </bean>
 
-	<bean
-		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+        <bean
+            class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
 
-	<bean id="openEntityManagerInViewPhaseListener"
-		class="br.com.ambientinformatica.ambientjsf.controle.OpenEntityManagerInViewPhaseListener">
-		<property name="entityManagerFactoryBeanName" value="entityManagerFactory" />
-		<property name="transactionManagerBeanName" value="transactionManager" />
-	</bean>
+        <bean id="openEntityManagerInViewPhaseListener"
+            class="br.com.ambientinformatica.ambientjsf.controle.OpenEntityManagerInViewPhaseListener">
+            <property name="entityManagerFactoryBeanName" value="entityManagerFactory" />
+            <property name="transactionManagerBeanName" value="transactionManager" />
+        </bean>
 
-	<bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
-		<property name="scopes">
-			<map>
-				<entry key="conversation">
-					<bean
-						class="br.com.ambientinformatica.ambientjsf.controle.ConversationScope" />
-				</entry>
-			</map>
-		</property>
-	</bean>
+        <bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+            <property name="scopes">
+                <map>
+                    <entry key="conversation">
+                        <bean
+                            class="br.com.ambientinformatica.ambientjsf.controle.ConversationScope" />
+                    </entry>
+                </map>
+            </property>
+        </bean>
 
-	<bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
-		<property name="scopes">
-			<map>
-				<entry key="application">
-					<bean
-						class="br.com.ambientinformatica.ambientjsf.controle.ApplicationScope" />
-				</entry>
-			</map>
-		</property>
-	</bean>
+        <bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+            <property name="scopes">
+                <map>
+                    <entry key="application">
+                        <bean
+                            class="br.com.ambientinformatica.ambientjsf.controle.ApplicationScope" />
+                    </entry>
+                </map>
+            </property>
+        </bean>
 
 
-</beans>
+    </beans>

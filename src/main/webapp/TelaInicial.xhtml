@@ -11,8 +11,7 @@
 
 <ui:composition template="templateMain.xhtml">
 <ui:define name="conteudo">
-	<div id="MEIO TELA"
-		 class="main col-md-10 col-md-offset-2 col-sm-9 col-sm-offset-3 ">
+	<div id="MEIO TELA" class="main col-md-10 col-md-offset-2 col-sm-9 col-sm-offset-3 ">
 		    <b:row styleClass="show-grid">
 			<b:column col-xs="4"/>
 			<b:column col-xs="6">
@@ -32,8 +31,8 @@
 			<b:dataTable value="#{CadastradosControl.cadastrados}" var="cad">
 				<b:dataTableColumn value="#{cad.nome}"/>
 				<b:dataTableColumn value="#{cad.cpf}"/>
-				<b:dataTableColumn width="20%" >
-					<p:commandButton value="Entrada/Saida" update="tabela" action="#{MovimentacaoControl.Confirmar(cad)}" />
+				<b:dataTableColumn width="20%" label="Ações">
+					<b:commandButton value="Entrada/Saida" update="tabela" action="#{MovimentacaoControl.Confirmar(cad)}" />
 				</b:dataTableColumn>
 			</b:dataTable>
 

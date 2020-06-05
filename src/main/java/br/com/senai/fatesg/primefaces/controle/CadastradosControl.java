@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.RequestScoped;
 import javax.faces.event.ActionEvent;
 import javax.inject.Named;
 
@@ -14,9 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import br.com.ambientinformatica.ambientjsf.util.UtilFaces;
 import br.com.senai.fatesg.primefaces.persistencia.CadastradosDao;
+import org.springframework.context.annotation.Scope;
 
 @Named("CadastradosControl")
-@RequestScoped
+@Scope("conversation")
 public class CadastradosControl {
 	// entidades
 	private CadastradosEntity cadastradosEntity = new CadastradosEntity();
@@ -42,9 +42,10 @@ public class CadastradosControl {
 
 	}
 
-	public void confirmar() {
+	public void confirmar(ActionEvent evt) {
 		try {
 			cadastradosDao.incluir(cadastradosEntity);
+			listar(evt);
 			cadastradosEntity = new CadastradosEntity();
 		} catch (Exception e) {
 			UtilFaces.addMensagemFaces(e);
@@ -61,10 +62,6 @@ public class CadastradosControl {
 
 	public List<CadastradosEntity> getCadastrados() {
 		return cadastrados;
-	}
-
-	public void setCadastrados(List<CadastradosEntity> cadastrados) {
-		this.cadastrados = cadastrados;
 	}
 
 }

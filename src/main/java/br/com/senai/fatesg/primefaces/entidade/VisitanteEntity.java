@@ -13,11 +13,11 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Visitante {
+public class VisitanteEntity {
 
-	public Visitante(){};
+	public VisitanteEntity(){};
 
-	public Visitante(String nome, String RG){
+	public VisitanteEntity(String nome, String RG){
 		this.nome=nome;
 		this.RG=RG;
 	}
@@ -28,20 +28,11 @@ public class Visitante {
 	private Long id;
 	
 	@ManyToOne
-	@JoinColumn(name="cadastrados_id")
+	@JoinColumn(name="idCadastrado")
 	private CadastradosEntity cadastradosEntity;
-	
-	
 	private String nome;
 	private String RG;
-	
-	@Temporal(TemporalType.TIME)
-	private Date createDataTime;
-	
-	@Temporal(TemporalType.DATE)
-	private Date latestEditDataTime;
-	
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -66,18 +57,6 @@ public class Visitante {
 	public void setRG(String rG) {
 		RG = rG;
 	}
-	public Date getCreateDataTime() {
-		return createDataTime;
-	}
-	public void setCreateDataTime(Date createDataTime) {
-		this.createDataTime = createDataTime;
-	}
-	public Date getLatestEditDataTime() {
-		return latestEditDataTime;
-	}
-	public void setLatestEditDataTime(Date latestEditDataTime) {
-		this.latestEditDataTime = latestEditDataTime;
-	}
-	
+
 	
 }

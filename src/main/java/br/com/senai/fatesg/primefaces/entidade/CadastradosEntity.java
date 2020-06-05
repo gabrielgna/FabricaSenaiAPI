@@ -22,8 +22,18 @@ public class CadastradosEntity {
     private String nome;
     private String celular;
     private String tipo;
+    private String senha;
 
     //getters setters
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
     public Long getIdCadastrado() {
         return idCadastrado;
     }

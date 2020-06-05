@@ -33,21 +33,21 @@
 
                 <h:outputText value="Nome"></h:outputText>
                 <b:inputText large-screen="one-third"
-                             value="#{CadastradosControl.cadastrado.nome }"/>
+                             value="#{CadastradosControl.cadastradosEntity.nome }"/>
 
                 <h:outputText value="Email"></h:outputText>
                 <b:inputText large-screen="two-thirds"
-                             value="#{CadastradosControl.cadastrado.email }"/>
+                             value="#{CadastradosControl.cadastradosEntity.email }"/>
 
                 <h:outputText value="Celular"></h:outputText>
                 <b:inputText large-screen="two-thirds"
-                             value="#{CadastradosControl.cadastrado.celular }"/>
+                             value="#{CadastradosControl.cadastradosEntity.celular }"/>
 
                 <h:outputText value="CPF"></h:outputText>
                 <b:inputText large-screen="two-thirds"
-                             value="#{CadastradosControl.cadastrado.cpf }"/>
+                             value="#{CadastradosControl.cadastradosEntity.cpf }"/>
 
-                <p:selectOneMenu id="comboTipo" value="#{CadastradosControl.cadastrado.tipo}" style="width:400px" label="Tipo Pessoa">
+                <p:selectOneMenu id="comboTipo" value="#{CadastradosControl.cadastradosEntity.tipo}" style="width:400px" label="Tipo Pessoa">
                     <f:selectItem itemLabel="Morador" itemValue="morador"/>
                     <f:selectItem itemLabel="Visitante" itemValue="visitante"/>
                     <f:selectItem itemLabel="Prestador de Servico" itemValue="prestador"/>

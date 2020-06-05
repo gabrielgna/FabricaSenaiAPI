@@ -1,19 +1,12 @@
 package br.com.senai.fatesg.primefaces.util;
 
-import br.com.senai.fatesg.primefaces.controle.CadastradosControl;
-import br.com.senai.fatesg.primefaces.entidade.Cadastrados;
 import br.com.senai.fatesg.primefaces.entidade.TipoCadastrado;
 import br.com.senai.fatesg.primefaces.persistencia.TipoCadastradosDao;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
-import javax.faces.convert.ConverterException;
 import javax.faces.convert.FacesConverter;
-import java.util.ArrayList;
-import java.util.List;
 
 @FacesConverter("cadastradosConverter")
 public class CadastradosConverter implements Converter {

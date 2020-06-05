@@ -7,12 +7,12 @@ import org.hibernate.validator.constraints.NotBlank;
 
 
 @Entity
-public class Cadastrados {
+public class CadastradosEntity {
 
     @Id
     @GeneratedValue(generator = "cadastrados_seq", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "cadastrados_seq", sequenceName = "cadastrados_seq", allocationSize = 1, initialValue = 1)
-    private Long id;
+    private Long idCadastrado;
 
     @NotBlank
     @Column(nullable = false)
@@ -24,6 +24,14 @@ public class Cadastrados {
     private String tipo;
 
     //getters setters
+    public Long getIdCadastrado() {
+        return idCadastrado;
+    }
+
+    public void setIdCadastrado(Long idCadastrado) {
+        this.idCadastrado = idCadastrado;
+    }
+
     public String getCpf() {
         return cpf;
     }

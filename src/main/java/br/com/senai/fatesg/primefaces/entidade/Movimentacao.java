@@ -27,18 +27,18 @@ public class Movimentacao {
 	
 	@ManyToOne
 	@JoinColumn(name="cadastrados_id")
-	private Cadastrados cadastrados;
+	private CadastradosEntity cadastradosEntity;
 	
 	//getters e setters
 	
 	public Date getHorario() {
 		return horario;
 	}
-	public Cadastrados getCadastrados() {
-		return cadastrados;
+	public CadastradosEntity getCadastradosEntity() {
+		return cadastradosEntity;
 	}
-	public void setCadastrados(Cadastrados cadastrados) {
-		this.cadastrados = cadastrados;
+	public void setCadastradosEntity(CadastradosEntity cadastradosEntity) {
+		this.cadastradosEntity = cadastradosEntity;
 	}
 	public void setHorario(Date horario) {
 		this.horario = horario;

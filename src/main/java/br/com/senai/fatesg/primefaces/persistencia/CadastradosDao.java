@@ -5,10 +5,10 @@ import java.util.List;
 import javax.persistence.PersistenceException;
 
 import br.com.ambientinformatica.jpa.persistencia.Persistencia;
-import br.com.senai.fatesg.primefaces.entidade.Cadastrados;
+import br.com.senai.fatesg.primefaces.entidade.CadastradosEntity;
 
-public interface CadastradosDao extends Persistencia<Cadastrados> {
+public interface CadastradosDao extends Persistencia<CadastradosEntity> {
 
-	public List<Cadastrados> buscaPor(String nome)throws PersistenceException;
+	public List<CadastradosEntity> buscaPor(String nome)throws PersistenceException;
 	
 }

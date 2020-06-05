@@ -11,10 +11,16 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.print.attribute.standard.DateTimeAtCompleted;
 
 @Entity
 public class Visitante {
+
+	public Visitante(){};
+
+	public Visitante(String nome, String RG){
+		this.nome=nome;
+		this.RG=RG;
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -23,7 +29,7 @@ public class Visitante {
 	
 	@ManyToOne
 	@JoinColumn(name="cadastrados_id")
-	private Cadastrados cadastrados;
+	private CadastradosEntity cadastradosEntity;
 	
 	
 	private String nome;
@@ -42,11 +48,11 @@ public class Visitante {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Cadastrados getCadastrados() {
-		return cadastrados;
+	public CadastradosEntity getCadastradosEntity() {
+		return cadastradosEntity;
 	}
-	public void setCadastrados(Cadastrados cadastrados) {
-		this.cadastrados = cadastrados;
+	public void setCadastradosEntity(CadastradosEntity cadastradosEntity) {
+		this.cadastradosEntity = cadastradosEntity;
 	}
 	public String getNome() {
 		return nome;

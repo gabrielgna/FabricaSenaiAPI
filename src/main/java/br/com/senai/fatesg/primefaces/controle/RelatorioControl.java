@@ -5,20 +5,19 @@ import java.util.List;
 
 import javax.inject.Named;
 
+import br.com.senai.fatesg.primefaces.entidade.CadastradosEntity;
 import org.springframework.context.annotation.Scope;
-
-import br.com.senai.fatesg.primefaces.entidade.Cadastrados;
 
 @Named("RelatorioControl")
 @Scope("conversation")
 public class RelatorioControl {
 
-	private Cadastrados cadastradoSelecioando;
+	private CadastradosEntity cadastradoSelecioando;
 	
-	private List<Cadastrados> cadastrados = new ArrayList<Cadastrados>();
+	private List<CadastradosEntity> cadastrados = new ArrayList<CadastradosEntity>();
 	
 	
-	public List<Cadastrados> getCadastrados() {
+	public List<CadastradosEntity> getCadastrados() {
 		return cadastrados;
 	}
 }

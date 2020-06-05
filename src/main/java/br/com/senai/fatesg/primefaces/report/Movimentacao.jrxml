@@ -8,14 +8,14 @@
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT
-     cadastrados."nome" AS cadastrados_nome,
+     cadastradosEntity."nome" AS cadastrados_nome,
      movimentacao."horario" AS movimentacao_horario,
      movimentacao."tipo" AS movimentacao_tipo,
      pessoaimoveltipo."imovel_id" AS pessoaimoveltipo_imovel_id,
      imovel."bloco" AS imovel_bloco,
      imovel."numero" AS imovel_numero
 FROM
-     "cadastrados" cadastrados INNER JOIN "movimentacao" movimentacao ON cadastrados."id" = movimentacao."cadastrados_id"
+     "cadastradosEntity" cadastradosEntity INNER JOIN "movimentacao" movimentacao ON cadastradosEntity."id" = movimentacao."cadastrados_id"
      INNER JOIN "pessoaimoveltipo" pessoaimoveltipo ON movimentacao."id" = pessoaimoveltipo."imovel_id"
      INNER JOIN "imovel" imovel ON pessoaimoveltipo."imovel_id" = imovel."id"
 where cadastrados_id = $P{idCadastrado}]]>

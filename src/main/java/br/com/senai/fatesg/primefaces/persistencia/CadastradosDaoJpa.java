@@ -9,20 +9,20 @@ import org.springframework.stereotype.Repository;
 
 import br.com.ambientinformatica.jpa.exception.PersistenciaException;
 import br.com.ambientinformatica.jpa.persistencia.PersistenciaJpa;
-import br.com.senai.fatesg.primefaces.entidade.Cadastrados;
+import br.com.senai.fatesg.primefaces.entidade.CadastradosEntity;
 
 @Repository("cadastradosDao")
-public class CadastradosDaoJpa extends PersistenciaJpa<Cadastrados> implements CadastradosDao {
+public class CadastradosDaoJpa extends PersistenciaJpa<CadastradosEntity> implements CadastradosDao {
 
 	private static final long serialVersionUID = 1L;
 
-	public List<Cadastrados> buscaPor(String nome) throws PersistenceException {
+	public List<CadastradosEntity> buscaPor(String nome) throws PersistenceException {
 		try {
 			StringBuilder sql = new StringBuilder();
 			sql.append("select distinct c from Cadastrados c ");
 			sql.append("where  upper(c.nome)  like upper(:nome) ");
 
-			TypedQuery<Cadastrados> query = em.createQuery(sql.toString(), Cadastrados.class);
+			TypedQuery<CadastradosEntity> query = em.createQuery(sql.toString(), CadastradosEntity.class);
 
 			query.setParameter("nome", "%" + nome + "%");
 			return query.getResultList();
